@@ -22,3 +22,4 @@ Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard'
 Route::get('/home-question-respon',[QuestionController::class, 'respon']);
 
 Route::resource('pelanggan', PelangganController::class);
+
