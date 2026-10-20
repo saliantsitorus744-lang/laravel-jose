@@ -31,9 +31,23 @@ class QuestionController extends Controller
         $data['nama'] = $request->nama;
         $data['email'] = $request->email;
         $data['pertanyaan'] = $request->pertanyaan;
-        return redirect()->route('home')->with('info', 'Selamat, Kamu Lulus!');
+        // return redirect()->route('home')->with('info', 'Selamat, Kamu Lulus!');
         // return view('home-question-respons', $data);
+        session()->put('data_pertanyaan', $data);
+        session()->flash('info','Data Berhasil Dimasukkan !');
 
+        return redirect('/home');
+
+    }
+
+    public function respon(){
+        $data = session('data_pertanyaan');
+
+        if(! $data){
+            return redirect('/home');
+        }
+
+        return view('home-question-respons', $data);
     }
 
     /**

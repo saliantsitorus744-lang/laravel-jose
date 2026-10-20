@@ -159,11 +159,24 @@
 
         <form action="{{ route('question.store') }}" method="POST">
             @csrf
-            @if (session('info'))
+            {{-- @if (session('info'))
             <div class="alert alert-info">
             {!! session('info') !!}
             </div>
-            @endif
+            @endif --}}
+
+            @if(session('info'))
+    <div class="alert alert-success" style="padding: 15px; background-color: #d4edda; color: #155724; border-radius: 5px; margin: 15px 0;">
+        {{ session('info') }}
+    </div>
+
+    <script>
+        setTimeout(function() {
+            window.location.href = "{{ url('/home-question-respon') }}";
+        }, 2500);
+    </script>
+@endif
+
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
                 <input type="text" class="form-control" name="nama">
