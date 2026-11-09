@@ -291,7 +291,7 @@
     <script src="{{ asset('assets-admin/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
     <!-- Volt JS -->
-    <script src="{{ asset('assets-admin/js/volt.js') }}"></script>
+    <script src="{{ asset('assets-ad    min/js/volt.js') }}"></script>
 </body>
 
 </html>
