@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\UserController; // 1. Tambahkan Import ini
 use App\Http\Controllers\CvController;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -34,3 +35,9 @@ Route::get('/cv/{cv}', [CvController::class, 'show'])->name('cv.show');
 Route::get('/cv/{cv}/edit', [CvController::class, 'edit'])->name('cv.edit');
 Route::put('/cv/{cv}', [CvController::class, 'update'])->name('cv.update');
 Route::delete('/cv/{cv}', [CvController::class, 'destroy'])->name('cv.destroy');
+
+Route::get('/login', [AuthController::class, 'index'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+Route::post('/logout', [AuthController::class, 'logout'])
+    ->middleware('auth')
+    ->name('auth.logout');
